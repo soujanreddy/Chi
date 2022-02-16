@@ -36,15 +36,15 @@ import SwitchListLumenCenturyLink from './_switch-list-lumen-centurylink.vue';
 import SwitchLeftLumenCenturyLink from './_switch-left-lumen-centurylink.vue';
 import SwitchHiddenLumenCenturyLink from './_switch-hidden-lumen-centurylink.vue';
 import SizesLumenCenturyLink from './_sizes-lumen-centurylink.vue';
-import BasePortal from './_portal/_base-portal.vue';
-import CheckedPortal from './_portal/_checked-portal.vue';
-import DisabledPortal from './_portal/_disabled-portal.vue';
-import InlinePortal from './_portal/_inline-portal.vue';
-import StackedPortal from './_portal/_stacked-portal.vue';
-import SwitchListPortal from './_portal/_switch-list-portal.vue';
-import SwitchLeftPortal from './_portal/_switch-left-portal.vue';
-import SwitchHiddenPortal from './_portal/_switch-hidden-portal.vue';
-import SizesPortal from './_portal/_sizes-portal.vue';
+import BasePortal from './_portal/_base.vue';
+import CheckedPortal from './_portal/_checked.vue';
+import DisabledPortal from './_portal/_disabled.vue';
+import InlinePortal from './_portal/_inline.vue';
+import StackedPortal from './_portal/_stacked.vue';
+import SwitchListPortal from './_portal/_switch-list.vue';
+import SwitchLeftPortal from './_portal/_switch-left.vue';
+import SwitchHiddenPortal from './_portal/_switch-hidden.vue';
+import SizesPortal from './_portal/_sizes.vue';
 
 @Component({
   components: {
