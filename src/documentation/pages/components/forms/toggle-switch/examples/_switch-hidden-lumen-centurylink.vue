@@ -1,5 +1,5 @@
 <template lang="pug">
-  <ComponentExample title="Switch with Hidden Label" id="switch-hidden-label-portal" :tabs="exampleTabs">
+  <ComponentExample title="Switch with Hidden Label" id="switch-hidden-lumen-centurylink" :tabs="exampleTabs">
     .chi-form__item(slot="example")
       chi-switch(id='toggle8',label='Label', hide-label)
     <Wrapper slot="code-webcomponent">

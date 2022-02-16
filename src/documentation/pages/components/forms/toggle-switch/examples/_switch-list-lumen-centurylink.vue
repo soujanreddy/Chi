@@ -1,5 +1,5 @@
 <template lang="pug">
-  <ComponentExample title="Switch List" id="switch-list-portal" :tabs="exampleTabs">
+  <ComponentExample title="Switch List" id="switch-list-lumen-centurylink" :tabs="exampleTabs">
     p.-text(slot="example-description")
       | Switch lists are used to wrap a series of switches in a list.
       | To render, apply the class <code>-list</code> to <code>chi-form__item</code>.

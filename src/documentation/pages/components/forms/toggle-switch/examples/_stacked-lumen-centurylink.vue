@@ -1,5 +1,5 @@
 <template lang="pug">
-  <ComponentExample title="Stacked" id="stacked-portal" :tabs="exampleTabs">
+  <ComponentExample title="Stacked" id="stacked-lumen-centurylink" :tabs="exampleTabs">
     .div(slot="example")
       .chi-form__item
         chi-switch(id='toggle3', label='Label')

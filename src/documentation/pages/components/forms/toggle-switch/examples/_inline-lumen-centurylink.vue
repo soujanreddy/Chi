@@ -1,5 +1,5 @@
 <template lang="pug">
-  <ComponentExample title="Inline" id="inline-portal" :tabs="exampleTabs">
+  <ComponentExample title="Inline" id="inline-lumen-centurylink" :tabs="exampleTabs">
     .-d--flex(slot="example")
       .chi-form__item.-inline
         chi-switch(id='toggle5', label='Label')
