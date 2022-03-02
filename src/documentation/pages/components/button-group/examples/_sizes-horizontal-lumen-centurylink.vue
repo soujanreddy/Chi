@@ -1,6 +1,6 @@
 <template lang="pug">
   <ComponentExample titleSize="h4" title="Horizontal" id="sizes-horizontal-lumen-centurylink" :tabs="exampleTabs">
-    .-p--0(slot="example" v-for="size in sizes")
+    div(slot="example" v-for="size in sizes")
       p.-text--bold -{{size}}
       .-d--flex.-flex--wrap
         .chi-button-group

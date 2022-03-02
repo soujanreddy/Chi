@@ -81,5 +81,5 @@ import { Component, Vue } from 'vue-property-decorator';
     };
   },
 })
-export default class HybridSizes extends Vue {}
+export default class HybridSizesPortal extends Vue {}
 </script>

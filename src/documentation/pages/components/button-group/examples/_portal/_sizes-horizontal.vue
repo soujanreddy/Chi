@@ -1,6 +1,6 @@
 <template lang="pug">
   <ComponentExample titleSize="h4" title="Horizontal" id="horizontal-portal" :tabs="exampleTabs">
-    .-p--0(slot="example" v-for="size in sizes")
+    div(slot="example" v-for="size in sizes")
       p.-text--bold -{{size}}
       .-d--flex.-flex--wrap
         .chi-button-group
@@ -63,5 +63,5 @@ import { Component, Vue } from 'vue-property-decorator';
     };
   },
 })
-export default class SizesHorizontal extends Vue {}
+export default class SizesHorizontalPortal extends Vue {}
 </script>

@@ -27,11 +27,11 @@
         | Button groups support the following sizes: <code>-xs</code>, <code>-sm</code>, <code>-md</code>,
         |  <code>-lg</code>.
         | The default size is <code>-md</code>.
-      <SizesHorizontal />
-      <SizesVertical />
+      <SizesHorizontalPortal />
+      <SizesVerticalPortal />
       <HybridButtons />
       <HybridFluid />
-      <HybridSizes />
+      <HybridSizesPortal />
 </template>
 
 <script lang="ts">
@@ -44,9 +44,9 @@ import FluidVertical from './_fluid-vertical.vue';
 import HybridButtons from './_hybrid-buttons.vue';
 import HybridFluid from './_hybrid-fluid.vue';
 import HybridSizesLumenCenturyLink from './_hybrid-sizes-lumen-centurylink.vue';
-import HybridSizes from './_portal/_hybrid-sizes.vue';
-import SizesHorizontal from './_portal/_sizes-horizontal.vue';
-import SizesVertical from './_portal/_sizes-vertical.vue';
+import HybridSizesPortal from './_portal/_hybrid-sizes.vue';
+import SizesHorizontalPortal from './_portal/_sizes-horizontal.vue';
+import SizesVerticalPortal from './_portal/_sizes-vertical.vue';
 import SizesHorizontalLumenCenturyLink from './_sizes-horizontal-lumen-centurylink.vue';
 import SizesVerticalLumenCenturyLink from './_sizes-vertical-lumen-centurylink.vue';
 import Vertical from './_vertical.vue';
@@ -64,9 +64,9 @@ import Vertical from './_vertical.vue';
     HybridButtons,
     HybridFluid,
     HybridSizesLumenCenturyLink,
-    HybridSizes,
-    SizesHorizontal,
-    SizesVertical,
+    HybridSizesPortal,
+    SizesHorizontalPortal,
+    SizesVerticalPortal,
   }
 })
 export default class Examples extends Vue {}
