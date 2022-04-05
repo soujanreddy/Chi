@@ -1,6 +1,6 @@
 <template lang="pug">
-  <ComponentTabExample title="Vertical" id="vertical-lumen-centurylink" additionalClasses="-bg--grey-20" padding="-p--0" :tabs="exampleTabs" :menuTabs="menuTabs" :menuId="menuId" @toggleMenuId="toggleMenuId">
-    .-p--3(:slot="$data.menuTabs[menuId === 'base' ? 0 : 1].id")
+  <ComponentExample title="Vertical" :id="exampleId" additionalClasses="-bg--grey-20" padding="-p--0" :tabs="exampleTabs" :headTabs="headTabs" @chiHeadTabsChange="e => changeClosable(e)">
+    .-p--3(slot="example")
       div(:class="'chi-grid -no-gutter -bg--' + (menuId === 'base' ? 'white' : 'black')")
         .chi-col.-w--6.-w-sm--4.-p--3
           ul(:class="'chi-tabs ' + (menuId === 'base' ? '' : '-inverse') + ' -vertical'" :id="'example-vertical-' + menuId" role="tablist" :aria-label="menuId === 'base' ? 'chi-tabs-vertical-base' : 'vertical-inverse'" :ref="menuId === 'base' ? 'example-vertical-base' : ''")
@@ -14,26 +14,30 @@
         div(:class="'chi-col ' + (menuId === 'base' ? '' : '-bg--white') + ' -p--3'")
           div(:class="'chi-tabs-panel ' + (tab.id === 1 ? '-active' : '')" :id="'vertical-' + menuId + '-' + tab.id" :key="tab.id" v-for="tab in $data.tabs" role="tabpanel")
             .-text Tab {{tab.id}} content    
-    <pre class="language-html" slot="code-webcomponent">
-      <code v-highlight="$data.codeSnippets.webcomponent" class="html"></code>
-    </pre>
-    <Wrapper slot="code-htmlblueprint">
-      <JSNeeded />
+    <Wrapper :slot="`code-${exampleId}-${tab.id}-webcomponent`" v-for="tab in headTabs" :key="tab.id">
       <pre class="language-html">
-      <code v-highlight="highlightedHTMLBluePrint ? highlightedHTMLBluePrint : $data.codeSnippets.htmlblueprint.base" class="html"></code>
+        <code v-highlight="tab.codeSnippets.webComponent.code" class="html"></code>
       </pre>
     </Wrapper>
-  </ComponentTabExample>
+    <Wrapper :slot="`code-${exampleId}-${tab.id}-htmlblueprint`" v-for="tab in headTabs" :key="tab.id">
+      <JSNeeded />
+      <pre class="language-html">
+        <code v-highlight="tab.codeSnippets.htmlBlueprint.code" class="html"></code>
+      </pre>
+    </Wrapper>
+  </ComponentExample>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { HeadTabsInterface } from '../../../../models/models';
 
 declare const chi: any;
 
 @Component({
   data: () => {
     return {
+      exampleId: 'vertical-lumen-centurylink',
       tabs: [{id: 1, label: 'Active Tab'}, {id: 2, label: 'Tab Link'}, {id: 3, label: 'Tab Link'}],
       exampleTabs: [
         {
@@ -47,21 +51,17 @@ declare const chi: any;
           label: 'HTML blueprint',
         },
       ],
-      menuTabs: [
+      headTabs: [
         {
           active: true,
           id: 'base',
           label: 'Base',
+           codeSnippets: {
+        webComponent: {
+          code: ''
         },
-        {
-          id: 'inverse',
-          label: 'Inverse',
-        },
-      ],
-      codeSnippets: {
-        webcomponent: ``,
-        htmlblueprint: {
-          base: `<ul class="chi-tabs -vertical" id="example-vertical-base" role="tablist" aria-label="chi-tabs-vertical-base">
+        htmlBlueprint: {
+          code: `<ul class="chi-tabs -vertical" id="example-vertical-base" role="tablist" aria-label="chi-tabs-vertical-base">
   <li class="-active">
     <a
       href="#vertical-base-1"
@@ -98,7 +98,18 @@ declare const chi: any;
 </div>
 
 <script>chi.tab(document.getElementById('example-vertical-base'));<\/script>`,
-          inverse: `<ul class="chi-tabs -inverse -vertical" id="example-vertical-inverse" role="tablist" aria-label="vertical-inverse">
+        }
+        }
+        },
+        {
+          id: 'inverse',
+          label: 'Inverse',
+          codeSnippets: {
+        webComponent: {
+          code: ''
+        },
+        htmlBlueprint: {
+         code: `<ul class="chi-tabs -inverse -vertical" id="example-vertical-inverse" role="tablist" aria-label="vertical-inverse">
   <li class="-active">
     <a
       href="#vertical-inverse-1"
@@ -137,21 +148,21 @@ declare const chi: any;
 <script>chi.tab(document.getElementById('example-vertical-inverse'));<\/script>`,
         },
       },
+        },
+      ],
     }
   },
 })
 export default class VerticalLumenCenturyLink extends Vue {
   menuId = 'base';
-  highlightedHTMLBluePrint = '';
   tab: any;
 
   mounted() {
     this.tab = chi.tab(this.$refs['example-vertical-base'] as HTMLElement);
   }
 
-  toggleMenuId(toggleTabEvent: string) {
-    this.menuId = toggleTabEvent;
-    this.highlightedHTMLBluePrint = this.$data.codeSnippets.htmlblueprint[toggleTabEvent];
+  changeClosable(e: HeadTabsInterface) {
+    this.menuId = e.id;
   }
 
   beforeDestroy() {
